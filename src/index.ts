@@ -12,7 +12,7 @@ export class NoAvaxProviderError extends Error {
   public constructor() {
     super();
     this.name = this.constructor.name;
-    this.message = "No BSC provider was found on window.AvalancheChain.";
+    this.message = "No avax provider was found on window.AvalancheChain.";
   }
 }
 
@@ -36,14 +36,14 @@ export class AvaxConnector extends AbstractConnector {
 
   private handleChainChanged(chainId: string | number): void {
     if (__DEV__) {
-      console.log("Handling 'chainChanged' event with payload", chainId);
+      console.log("AvaxConnector Handling 'chainChanged' event with payload", chainId);
     }
     this.emitUpdate({ chainId, provider: window.AvalancheChain });
   }
 
   private handleAccountsChanged(accounts: string[]): void {
     if (__DEV__) {
-      console.log("Handling 'accountsChanged' event with payload", accounts);
+      console.log("AvaxConnector Handling 'accountsChanged' event with payload", accounts);
     }
     if (accounts.length === 0) {
       this.emitDeactivate();
@@ -54,14 +54,14 @@ export class AvaxConnector extends AbstractConnector {
 
   private handleClose(code: number, reason: string): void {
     if (__DEV__) {
-      console.log("Handling 'close' event with payload", code, reason);
+      console.log("AvaxConnector Handling 'close' event with payload", code, reason);
     }
     this.emitDeactivate();
   }
 
   private handleNetworkChanged(networkId: string | number): void {
     if (__DEV__) {
-      console.log("Handling 'networkChanged' event with payload", networkId);
+      console.log("AvaxConnector Handling 'networkChanged' event with payload", networkId);
     }
     this.emitUpdate({ chainId: networkId, provider: window.AvalancheChain });
   }
